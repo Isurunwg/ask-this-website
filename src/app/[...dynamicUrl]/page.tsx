@@ -9,12 +9,12 @@ interface PageProps {
   };
 }
 
-function reconstructUrl({ url }: { url: string[] }) {
-  const urlComponents = url.map((component) => decodeURIComponent(component));
-  return urlComponents.join("/");
-}
+// function reconstructUrl({ url }: { url: string[] }) {
+//   const urlComponents = url.map((component) => decodeURIComponent(component));
+//   return urlComponents.join("/");
+// }
 
-const Page = async ({ params }: PageProps) => {
+const Page = async () => {
   const sessionCookie = cookies().get("sessionId")?.value;
   const url = "https://en.wikipedia.org/wiki/Dark_matter";
 
