@@ -3,11 +3,11 @@ import { ragChat } from "@/lib/rag-chat";
 import { redis } from "@/lib/redis";
 import { cookies } from "next/headers";
 
-interface PageProps {
-  params: {
-    dynamicUrl: string | string[] | undefined;
-  };
-}
+// interface PageProps {
+//   params: {
+//     dynamicUrl: string | string[] | undefined;
+//   };
+// }
 
 // function reconstructUrl({ url }: { url: string[] }) {
 //   const urlComponents = url.map((component) => decodeURIComponent(component));
