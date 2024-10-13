@@ -16,7 +16,7 @@ function reconstructUrl({ url }: { url: string[] }) {
 
 const Page = async ({ params }: PageProps) => {
   const sessionCookie = cookies().get("sessionId")?.value;
-  const url = reconstructUrl({ url: params.dynamicUrl as string[] });
+  const url = "https://en.wikipedia.org/wiki/Dark_matter";
 
   const sessionId = (url + "--" + sessionCookie).replace(/\//g, "");
 
