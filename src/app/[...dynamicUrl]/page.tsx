@@ -18,31 +18,33 @@ const Page = async ({ params }: PageProps) => {
   const sessionCookie = cookies().get("sessionId")?.value;
   const url = reconstructUrl({ url: params.dynamicUrl as string[] });
 
-  const sessionId = (url + "--" + sessionCookie).replace(/\//g, "");
+  console.log("the constructued url = " + url);
 
-  const isIndexed = await redis.sismember("indexed-urls", url);
+  // const sessionId = (url + "--" + sessionCookie).replace(/\//g, "");
 
-  const initialMessages = await ragChat.history.getMessages({
-    amount: 100,
-    sessionId,
-  });
+  // const isIndexed = await redis.sismember("indexed-urls", url);
 
-  if (!isIndexed) {
-    await ragChat.context.add({
-      type: "html",
-      source: url,
-      config: {
-        chunkOverlap: 50,
-        chunkSize: 200,
-      },
-    });
+  // const initialMessages = await ragChat.history.getMessages({
+  //   amount: 100,
+  //   sessionId,
+  // });
 
-    await redis.sadd("indexed-urls", url);
-  }
+  // if (!isIndexed) {
+  //   await ragChat.context.add({
+  //     type: "html",
+  //     source: url,
+  //     config: {
+  //       chunkOverlap: 50,
+  //       chunkSize: 200,
+  //     },
+  //   });
 
-  return (
-    <ChatWrapper sessionId={sessionId} initialMessages={initialMessages} />
-  );
+  //   await redis.sadd("indexed-urls", url);
+  // }
+
+  // return (
+  //   <ChatWrapper sessionId={sessionId} initialMessages={initialMessages} />
+  // );
 };
 
 export default Page;
