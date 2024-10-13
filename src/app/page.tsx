@@ -14,7 +14,7 @@ export default function Home() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const baseUrl = "http://localhost:3000/";
+    const baseUrl = process.env.NEXT_PUBLIC_URL;
     const newUrl = `${baseUrl}${url}`;
 
     setIsLoading(true);
