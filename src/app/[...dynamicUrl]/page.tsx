@@ -15,7 +15,7 @@ function reconstructUrl({ url }: { url: string[] }) {
 }
 
 const Page = async ({ params }: PageProps) => {
-  const sessionCookie = cookies().get("sessionId")?.value;
+  // const sessionCookie = cookies().get("sessionId")?.value;
   const url = reconstructUrl({ url: params.dynamicUrl as string[] });
 
   console.log("the constructued url = " + url);
